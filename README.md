@@ -1,7 +1,7 @@
 # Recall Loss for Semantic Segmentation (This repo implements the paper: Recall Loss for Semantic Segmentation)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![Overview](?raw=true)
+![Overview](https://github.com/PotatoTian/recall-semseg/blob/main/image_demo/recall_demo.png?raw=true)
 
 ## Download Synthia dataset
 - The model uses the SEQS-05 Sythia-seq collections [here](http://synthia-dataset.net/downloads/)
