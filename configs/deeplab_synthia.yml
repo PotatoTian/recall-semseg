@@ -1,0 +1,62 @@
+id: RecallCE_resnet18
+model:
+    arch: DeepLab
+    backbone: resnet18
+data:
+    dataset: synthia
+    path: /datasets/synthia-seq/ 
+    train:
+        split: train
+        subsplits: [
+                        # 'SYNTHIA-SEQS-05-DAWN',
+                       'SYNTHIA-SEQS-05-SUMMER',
+                       # 'SYNTHIA-SEQS-05-NIGHT', 
+                       # 'SYNTHIA-SEQS-05-SUNSET',
+                        ]
+        reduction: 1.0
+        img_rows: 768
+        img_cols: 384
+    val:
+        split: val
+        subsplits: [
+                       # 'SYNTHIA-SEQS-05-DAWN',
+                       'SYNTHIA-SEQS-05-SUMMER',
+                       # 'SYNTHIA-SEQS-05-NIGHT', 
+                       # 'SYNTHIA-SEQS-05-SUNSET',
+                       #'SYNTHIA-SEQS-05-FOG',
+                       #'SYNTHIA-SEQS-05-SPRING',
+                       #'SYNTHIA-SEQS-05-FALL',
+                       #'SYNTHIA-SEQS-05-WINTER',
+                       #'SYNTHIA-SEQS-05-WINTERNIGHT',
+                       #'SYNTHIA-SEQS-05-RAIN',
+                       #'SYNTHIA-SEQS-05-RAINNIGHT',
+                       #'SYNTHIA-SEQS-05-SOFTRAIN',
+                      ]    
+        reduction: 1.0
+        img_rows: 768
+        img_cols: 384
+training:
+    train_iters: 100000
+    batch_size: 6
+    val_interval: 5000
+    print_interval: 50
+    n_workers: 6
+    optimizer:
+        name: 'adam'
+        lr: 1.0e-3
+    loss:
+        name: RecallCE 
+        RecallCE: 
+        Focal: 
+             gamma: 1.0
+        BalancedCE:
+        WeightedCE:
+        SoftIOU:
+        Lovasz:
+            only_present: True
+        CrossEntropy:
+        OhemCrossEntropy:
+            thresh: 0.7
+        ignore_index: 255
+    lr_schedule:
+    resume: 

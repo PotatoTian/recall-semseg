@@ -1,0 +1,40 @@
+id: RecallCE_resnet18
+model:
+    arch: DeepLab
+    backbone: resnet18
+data:
+    dataset: cityscapes
+    path: /home/datasets/cityscapes/
+    train:
+        split: train
+    val:
+        split: val
+    img_rows: 769 #512
+    img_cols: 769 #1242
+    
+training:
+    train_iters: 90000
+    batch_size: 6
+    val_interval: 5000
+    print_interval: 50
+    n_workers: 8
+    optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+    loss:
+        name: RecallCE 
+        RecallCE: 
+        Focal: 
+             gamma: 1.0
+             alpha: 0.5
+        WeightedCE:
+        BalancedCE:
+        SoftIOU:
+        Lovasz:
+            only_present: True
+        CrossEntropy:
+        OhemCrossEntropy:
+            thresh: 0.7
+        ignore_index: 255
+    lr_schedule:
+    resume: 
