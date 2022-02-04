@@ -4,7 +4,7 @@
 ![Overview](https://github.com/PotatoTian/recall-semseg/blob/main/image_demo/recall_demo.png?raw=true)
 
 ## Update
-The paper has just been accpeted to ICRA2022.
+The paper is accpeted to ICRA2022.
 
 ## Download Synthia dataset
 - The model uses the SEQS-05 Sythia-seq collections [here](http://synthia-dataset.net/downloads/)
